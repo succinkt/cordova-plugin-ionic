@@ -430,7 +430,7 @@ public class IonicCordovaCommon extends CordovaPlugin {
     try {
       minBackgroundDuration = Integer.parseInt(getStringResourceByName("ionic_min_background_duration"));
     } catch(NumberFormatException e) {
-      minBackgroundDuration = 30;
+      minBackgroundDuration = 300000;
     }
     String versionName;
     int versionCode;

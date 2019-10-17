@@ -83,7 +83,7 @@ class IonicDeployImpl {
     const isOnline = navigator && navigator.onLine;
     if (!isOnline) {
       console.warn('The device appears to be offline. Loading last available version and skipping update checks.');
-      this.reloadApp();
+      //this.reloadApp();
       return;
     }
 
@@ -101,15 +101,15 @@ class IonicDeployImpl {
           console.warn('Sync failed. Defaulting to last available version.');
         }
         console.log('calling _reload');
-        await this.reloadApp();
+        //await this.reloadApp();
         console.log('done _reloading');
         break;
       case UpdateMethod.NONE:
-        this.reloadApp();
+        //this.reloadApp();
         break;
       default:
         // NOTE: default anything that doesn't explicitly match to background updates
-        await this.reloadApp();
+        //await this.reloadApp();
         try {
             this.sync({updateMethod: UpdateMethod.BACKGROUND});
         } catch (e) {
@@ -541,7 +541,7 @@ class IonicDeployImpl {
         await this.extractUpdate();
       }
       if (prefs.availableUpdate.state === UpdateState.Ready && updateMethod === UpdateMethod.AUTO) {
-        await this.reloadApp();
+        //await this.reloadApp();
       }
     }
 
@@ -588,7 +588,7 @@ class IonicDeploy implements IDeployPluginAPI {
   private delegate: Promise<IonicDeployImpl>;
   private fetchIsAvailable: boolean;
   private lastPause = 0;
-  private minBackgroundDuration = 10;
+  private minBackgroundDuration = 300000;
   private disabled = false;
 
   constructor(parent: IPluginBaseAPI) {
@@ -631,7 +631,7 @@ class IonicDeploy implements IDeployPluginAPI {
 
   async onResume() {
     if (!this.disabled && this.lastPause && this.minBackgroundDuration && Date.now() - this.lastPause > this.minBackgroundDuration * 1000) {
-      await (await this.delegate)._handleInitialPreferenceState();
+      //await (await this.delegate)._handleInitialPreferenceState();
     }
   }
 

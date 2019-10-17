@@ -14,10 +14,10 @@
     </js-module>
     <preference name="APP_ID"/>
     <preference name="CHANNEL_NAME"/>
-    <preference name="UPDATE_API" default="https://api.ionicjs.com"/>
-    <preference name="UPDATE_METHOD" default="background"/>
-    <preference name="MAX_STORE" default="2"/>
-    <preference name="MIN_BACKGROUND_DURATION" default="30"/>
+    <preference name="UPDATE_API" default=""/>
+    <preference name="UPDATE_METHOD" default="none"/>
+    <preference name="MAX_STORE" default="0"/>
+    <preference name="MIN_BACKGROUND_DURATION" default="300000"/>
     <hook type="before_prepare" src="hooks/beforePrepare.js"/>
     <!-- ios -->
     <platform name="ios">

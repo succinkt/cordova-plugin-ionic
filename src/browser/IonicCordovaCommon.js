@@ -10,7 +10,7 @@ function notSupported(win,fail) {
 function getPreferences(win,fail) {
     setTimeout(function(){
         win({
-            minBackgroundDuration: 30,
+            minBackgroundDuration: 300000,
             disabled: true
         });
     },0);
